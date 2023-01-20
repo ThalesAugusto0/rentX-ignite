@@ -1,6 +1,6 @@
 # Rent - X
 
-[//]: <> (![Logo](https://dev-to-uploads.s3.amazonaws.com/uploads/articles/th5xamgrr6se0x5ro4g6.png)
+![Logo](https://dev-to-uploads.s3.amazonaws.com/uploads/articles/th5xamgrr6se0x5ro4g6.png)
 
 Projeto desenvolvido junto com a [Daniele Leão](https://www.linkedin.com/in/danieleleaoevangelista/?originalSubdomain=br) no curso Ignite da [Rocketseat](https://www.rocketseat.com.br/).
 
