@@ -1,22 +1,23 @@
-import { Request, response, Response } from "express";
+import { Request, Response } from "express";
 import { container } from "tsyringe";
 import { ListAvailableCarsUseCase } from "./listAvailableCarsUseCase";
 
 
-class ListAvailableCarsController { 
-    async handle(request: Request, reponse: Response): Promise<Response> {
-        const { brand, name, category_id } = request.body;
+class ListAvailableCarsController {
+  async handle(request: Request, response: Response): Promise<Response> {
+    const { brand, name, category_id } = request.query;
+    const listAvailableCarsUseCase = container.resolve(
+      ListAvailableCarsUseCase
+    );
 
-        const listAvailableCarsUseCase = container.resolve(ListAvailableCarsUseCase);
+    const cars = await listAvailableCarsUseCase.execute({
+      brand: brand as string,
+      name: name as string,
+      category_id: category_id as string,
+    });
 
-        const cars = await listAvailableCarsUseCase.execute({
-            category_id: category_id as string,
-            brand: brand as string,
-            name: name as string,
-        });
-
-        return response.json(cars);
-    }
+    return response.json(cars);
+  }
 }
 
-export { ListAvailableCarsController }
+export { ListAvailableCarsController };
