@@ -6,11 +6,11 @@ import { Car } from "../entities/Car";
 
 class CarsRepository implements ICarsRepository {
 
-    private repository: Repository<Car>;
+  private repository: Repository<Car>;
+  constructor() {
+    this.repository = getRepository(Car);
+  }
 
-    constructor() {
-        this.repository = getRepository(Car);
-    }
   async findAvailable(brand?: string, category_id?: string, name?: string): Promise<Car[]> {
     const carsQuery = await this.repository
       .createQueryBuilder("c")
@@ -66,6 +66,16 @@ class CarsRepository implements ICarsRepository {
   async findById(id: string): Promise<Car> {
     const car = await this.repository.findOne(id);
     return car;
+  }
+
+  async updateAvailable(id: string, available: boolean): Promise<void> {
+    await this.repository
+      .createQueryBuilder()
+      .update()
+      .set({ available })
+      .where("id = :id")
+      .setParameters({ id })
+      .execute()
   }
 }
 
