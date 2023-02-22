@@ -26,3 +26,4 @@ container.registerSingleton<IStorageProvider>(
     "StorageProvider",
     diskStorage[process.env.disk]
 )
+"Teste"
