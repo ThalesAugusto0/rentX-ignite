@@ -20,7 +20,7 @@ Projeto desenvolvido junto com a [Daniele Leão](https://www.linkedin.com/in/dan
 
 **TypeOrm:** ORM que ajuda no desenvolvimento de qualquer tipo de aplicativo que use banco de dados.
 
-## Autores
+## Autore
 
 - [@ThalesAugusto0](https://github.com/ThalesAugusto0)
 
