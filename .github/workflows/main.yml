@@ -35,7 +35,7 @@ jobs:
           port: ${{ secrets.SSH_PORT }}
           key: ${{ secrets.SSH_KEY }} 
           source: "., !node_modules"
-          target: "~/app/api-rentx"
+          target: "~/app/RentX-Ignite"
           
       - name: Update API
         uses: appleboy/ssh-action@master
@@ -45,7 +45,7 @@ jobs:
           port: ${{ secrets.SSH_PORT }}
           key: ${{ secrets.SSH_KEY }} 
           script: |
-            cd ~/app/api-rentx
+            cd ~/app/RentX-Ignite
             yarn
             ./node_modules/.bin/typeorm migration:run
             pm2 restart rentx_api
