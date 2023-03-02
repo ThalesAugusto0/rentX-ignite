@@ -22,7 +22,7 @@ jobs:
           node-version: 18.x
           
       - name: Install Dependencies
-        run: yarn
+        run: yarn 
         
       - name: Build
         run: yarn build
@@ -43,7 +43,8 @@ jobs:
           host: ${{ secrets.SSH_HOST }}
           username: ${{ secrets.SSH_USER }}
           port: ${{ secrets.SSH_PORT }}
-          key: ${{ secrets.SSH_KEY }} 
+          key: ${{ secrets.SSH_KEY }}
+          timeout: 60
           script: |
             cd ~/app/rentX-ignite
             yarn
