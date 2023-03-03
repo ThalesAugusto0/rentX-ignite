@@ -1,4 +1,4 @@
-import redis from "redis";
+import * as redis from "redis";
 import { RateLimiterRedis } from "rate-limiter-flexible"
 import { NextFunction, Request, Response } from "express";
 import { AppError } from "@shared/erros/AppError";
@@ -24,6 +24,8 @@ export default async function rateLimiter(
     next: NextFunction
 ): Promise<void> {
     try {
+
+        await redisClient.connect();
         await limiter.consume(request.ip);
 
         return next();
